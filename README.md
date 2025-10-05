@@ -3,6 +3,8 @@
 **Progressive ROT encoding** (default start=21) with optional **zlib compression**.  
 Generates **UUID-like encoded strings** for obfuscation and secure text handling.
 
+Use online encoder/decoder on : <a href="[https://www.w3schools.com](https://ghostncoding.lovable.app)" target="_blank">https://ghostncoding.lovable.app</a>
+
 ---
 
 ## Installation
@@ -35,7 +37,7 @@ print("Decoded:", decoded)
 
 ```
 Encoded: <uuid-like string>
-Decoded: hello world
+Decoded: 789cabad-5651-d5b4-32d6-31d056010011-d80283
 ```
 
 ---
