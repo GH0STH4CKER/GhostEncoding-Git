@@ -1,19 +1,19 @@
 # Read the Docs configuration file
-# https://docs.readthedocs.io/en/stable/config-file/v2.html
+# Minimal config for projects that don't need extra packages
 
 version: 2  # Required
 
 # Build environment settings
 build:
-  os: ubuntu-24.04        # OS to use for building
+  os: ubuntu-24.04
   tools:
-    python: "3.13"        # Python version
+    python: "3.13"
 
 # Sphinx documentation settings
 sphinx:
-  configuration: docs/conf.py  # Path to your Sphinx conf.py
+  configuration: docs/conf.py
 
-# Optional: install Python dependencies required to build docs
-python:
-  install:
-    - requirements: docs/requirements.txt
+# No Python dependencies to install
+# python:
+#   install:
+#     - requirements: docs/requirements.txt
