@@ -1,15 +1,23 @@
 # GHosTEncoding
 
-Progressive ROT encoding (default start=21) with optional zlib compression.  
-Generates UUID-like encoded strings for obfuscation.
+**Progressive ROT encoding** (default start=21) with optional **zlib compression**.  
+Generates **UUID-like encoded strings** for obfuscation and secure text handling.
+
+---
 
 ## Installation
+
+Install GHosTEncoding via pip:
 
 ```bash
 pip install ghostencoding
 ```
 
-## Quick example
+---
+
+## Quick Start
+
+Use `encode_pipeline` and `decode_pipeline` to quickly encode and decode text:
 
 ```python
 from ghostencoding import encode_pipeline, decode_pipeline
@@ -23,28 +31,68 @@ decoded = decode_pipeline(encoded)
 print("Decoded:", decoded)
 ```
 
-## Advanced options
+**Expected output:**
 
-- `start` — starting shift for progressive ROT (default `21`)  
-- `alphabet_mode` — `'printable'` (all printable ASCII) or `'letters'` (A-Z, a-z)  
-- `compress` — `True` to use zlib compression (default), `False` to disable  
+```
+Encoded: <uuid-like string>
+Decoded: hello world
+```
 
-### Example with options
+---
+
+## How It Works
+
+GHosTEncoding applies a **progressive ROT** cipher to your text:
+
+- Each character is shifted by a **starting value** (`start`) that increments for each subsequent character.  
+- Optionally, text can be **compressed with zlib** before encoding, reducing size and increasing obfuscation.  
+- The output looks like a **UUID-style string**, making it harder to interpret at a glance.
+
+---
+
+## Advanced Options
+
+Both `encode_pipeline` and `decode_pipeline` support optional parameters to customize encoding:
+
+| Option          | Default      | Description |
+|-----------------|-------------|-------------|
+| `start`         | 21          | Starting shift for progressive ROT |
+| `alphabet_mode` | 'printable' | Use all printable ASCII (`'printable'`) or only letters (`'letters'`) |
+| `compress`      | True        | Apply zlib compression (`True`) or leave uncompressed (`False`) |
+
+---
+
+### Example with Custom Options
 
 ```python
-encoded = encode_pipeline("Secret message!", start=10, alphabet_mode="letters", compress=False)
-decoded = decode_pipeline(encoded, start=10, alphabet_mode="letters", compress=False)
+encoded = encode_pipeline(
+    "Secret message!",
+    start=10,
+    alphabet_mode="letters",
+    compress=False
+)
+
+decoded = decode_pipeline(
+    encoded,
+    start=10,
+    alphabet_mode="letters",
+    compress=False
+)
+
 print(decoded)  # Secret message!
 ```
 
-## Command-line
+This example demonstrates **controlling the shift**, restricting the alphabet, and disabling compression.
 
-Run the package like a script (once installed or from the repo):
+---
 
-```bash
-python -m ghostencoding -e "some text to encode"
-python -m ghostencoding -d "<uuid-like-string>"
-```
+## Notes & Tips
+
+- **Default behavior** (`start=21`, `alphabet_mode='printable'`, `compress=True`) works for most use cases.  
+- Encoded strings are **UUID-like**, so they are suitable for obfuscation or generating unique keys.  
+- Always use `decode_pipeline` with the **same parameters** you used for encoding to retrieve the original text.  
+
+---
 
 ## License
 
