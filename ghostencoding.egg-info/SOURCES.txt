@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+ghostencoding/__init__.py
+ghostencoding/core.py
+ghostencoding.egg-info/PKG-INFO
+ghostencoding.egg-info/SOURCES.txt
+ghostencoding.egg-info/dependency_links.txt
+ghostencoding.egg-info/top_level.txt
+tests/test_core.py
